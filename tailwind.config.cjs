@@ -2,7 +2,9 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
-    extend: {},
+    boxShadow: {
+      "box-rating": "0px 0px 0px  4px #0f172a",
+    },
   },
   plugins: [],
 };
