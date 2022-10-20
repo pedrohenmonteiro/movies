@@ -1,32 +1,33 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { Container } from "../components/Container"
-import { Header } from "../components/Header"
-import { api, apiKey } from "../services/api"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Container } from "../components/Container";
+import { Header } from "../components/Header";
+import { api, apiKey } from "../services/api";
+import Movie from "../templates/Movie";
 
-const MoviePage = () =>  {
-const {id} = useParams()
+export type MoviePageData = {
+  title: string;
+  overview: string;
+  poster_path: string;
+};
 
-const [movieData, setMovieData] = useState()
+const MoviePage = () => {
+  const { id } = useParams();
+
+  const [movieData, setMovieData] = useState<MoviePageData>();
 
   useEffect(() => {
     api.get(`${id}?${apiKey}`).then((r) => {
-      console.log(r.data)
-      return setMovieData(r.data)
-    })
-    }, [])
+      return setMovieData(r.data);
+    });
+  }, []);
 
-  return(
-  <>
-  <Header />
-  {movieData &&
-  <div>
-    <h2>{movieData.title}</h2>
-  </div> 
-  
-}
-</>
-)}
+  return (
+    <>
+      <Header />
+      <Container>{movieData && <Movie {...movieData} />}</Container>
+    </>
+  );
+};
 
-
-export default MoviePage
+export default MoviePage;
