@@ -14,7 +14,6 @@ const Home = ({ results }: HomeProps) => {
     slidesToShow: 5,
     slidesToScroll: 3,
     initialSlide: 0,
-    swipeToSlide: true,
     autoplay: true,
     autoplaySpeed: 10000,
 
@@ -49,18 +48,17 @@ const Home = ({ results }: HomeProps) => {
     <>
       <Header />
       <Container>
-        <h1 className="text-3xl font-bold mb-8">Filmes populares</h1>
+        <h1 className="text-3xl font-bold mb-8">Popular movies</h1>
         <Slider {...settings}>
-          {results &&
-            results.map((item) => (
-              <MovieCard
-                key={item.id}
-                title={item.title}
-                rating={item.vote_average}
-                url={item.poster_path}
-                id={item.id}
-              />
-            ))}
+          {results.map((item) => (
+            <MovieCard
+              key={item.id}
+              title={item.title}
+              rating={item.vote_average}
+              url={item.poster_path}
+              id={item.id}
+            />
+          ))}
         </Slider>
       </Container>
     </>
