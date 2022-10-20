@@ -10,7 +10,6 @@ export const Rating = ({rating}: RatingProps) => (
             'border-green-500' : rating >= 7,
             'border-yellow-500': rating >= 4 && rating < 7,
             'border-red-500': rating >= 0 && rating < 4
-
           })}>{rating}</div>
   </div>
 )
