@@ -6,9 +6,6 @@ type RatingProps = {
 
 export const Rating = ({rating}: RatingProps) => (
   <div>
-
-{/* border: 12px solid #9B0AEB;
- box-shadow: 0px 0px 0px  12px white; */}
     <div className={classNames("w-10 h-10 bg-slate-900 border-solid border-4 rounded-full text-white flex items-center justify-center shadow-box-rating font-bold text-sm z-10",{
             'border-green-500' : rating >= 7,
             'border-yellow-500': rating >= 4 && rating < 7,
