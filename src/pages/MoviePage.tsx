@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "../components/Container";
-import { Header } from "../components/Header";
 import { api, apiKey } from "../services/api";
 import Movie from "../templates/Movie";
 
@@ -22,12 +21,7 @@ const MoviePage = () => {
     });
   }, []);
 
-  return (
-    <>
-      <Header />
-      <Container>{movieData && <Movie {...movieData} />}</Container>
-    </>
-  );
+  return <>{movieData && <Movie {...movieData} />}</>;
 };
 
 export default MoviePage;
